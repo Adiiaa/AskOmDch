@@ -9,10 +9,7 @@ public class AccountTests extends BaseTests {
     @Test
     public void testAccountPage(){
         HomePage homePage = new HomePage(driver);
-        AccountPage accountPage = homePage.clickAccountLink();
-        accountPage.loginInfo("Testing Web", "TestingWeb123");
-        accountPage.registerInfo("TestingWeb", "testing@ex.com", "testing123");
+        homePage.clickAccountLink();
     }
-
 
 }

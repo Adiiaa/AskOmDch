@@ -20,7 +20,6 @@ public class HomePage {
     private By womenLink = By.cssSelector("#menu-item-1229 > a");
     private By contactLink = By.cssSelector("#menu-item-1233 > a");
 
-
     public  HomePage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -51,16 +50,5 @@ public class HomePage {
         return new ContactPage(driver);
     }
 
-//    public DropDownPage clickCategory(String text) {
-//        clickStoreLink();
-//
-//        WebElement dropdownElement = wait.until(
-//                ExpectedConditions
-//                        .visibilityOfElementLocated(By.id("product_cat")));
-//
-//        Select dropdown = new Select(dropdownElement);
-//        dropdown.selectByValue(text);
-//
-//        return new DropDownPage(driver);
-//    }
+
 }

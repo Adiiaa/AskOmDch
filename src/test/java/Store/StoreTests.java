@@ -18,6 +18,7 @@ public class StoreTests extends BaseTests {
         String title = cartPage.cartTitle();
         Assert.assertTrue(title.contains("Cart"),"The page was not reached");
 
+
     }
 
 }

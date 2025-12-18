@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,7 +15,9 @@ public class StorePage {
     private By imageLink = By.cssSelector("#main > div > ul > li.ast-col-sm-12.ast-article-post.astra-woo-hover-swap.product.type-product.post-1198.status-publish.first.instock.product_cat-accessories.product_cat-women.has-post-thumbnail.sale.featured.taxable.shipping-taxable.purchasable.product-type-simple > div.astra-shop-thumbnail-wrap > a > img");
     private By addToCartButton = By.cssSelector("a[href='?add-to-cart=1198']");
     private By viewCartLink = By.cssSelector("a[title='View cart']");
-
+    private By searchField = By.id("woocommerce-product-search-field-0");
+    private By searchButton = By.cssSelector("button[type='submit']");
+    private By detailImage = By.cssSelector("nav.class=\"summary entry-summary\" h1");
 
     public StorePage(WebDriver driver){
         this.driver = driver;
@@ -34,5 +37,14 @@ public class StorePage {
         wait.until(ExpectedConditions.elementToBeClickable(viewCartLink));
         driver.findElement(viewCartLink).click();
         return new CartPage(driver);
+    }
+
+    public void setSearchField(String input){
+        driver.findElement(searchField).sendKeys(input);
+        driver.findElement(searchButton).click();
+    }
+    public String productPage(){
+        WebElement product = wait.until(ExpectedConditions.visibilityOfElementLocated(detailImage));
+        return product.getText();
     }
 }
